@@ -4,10 +4,12 @@ Homebrew tap for [Fuchico](https://github.com/FulecoRafa/fuchico), a notes
 editor with Helix modal editing.
 
 ```sh
-brew tap FulecoRafa/tap
-brew install --cask fuchico
+brew trust FulecoRafa/tap
+brew install --cask FulecoRafa/tap/fuchico
 ```
 
-`Casks/fuchico.rb` is updated automatically by Fuchico's Release workflow
-after each tagged build. The checksums are placeholders until the first
-release runs.
+Homebrew refuses casks from third-party taps until you `brew trust` them.
+The app is unsigned; the cask clears the quarantine flag after install.
+
+`Casks/fuchico.rb` is updated by `scripts/release.mjs` in the Fuchico repo on
+every release.
